@@ -5,16 +5,13 @@ using UnityEngine;
 public class Button_Controller : MonoBehaviour
 {
     private SpriteRenderer theSprite;
+    public int thisButtonNumber = 0;
+    private Game_Manager theGM;
 
     void Start()
     {
         theSprite = GetComponent<SpriteRenderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        theGM = FindObjectOfType<Game_Manager>();
     }
 
     private void OnMouseDown()
@@ -25,6 +22,6 @@ public class Button_Controller : MonoBehaviour
     private void OnMouseUp()
     {
         theSprite.color = new Color(theSprite.color.r, theSprite.color.g, theSprite.color.b, 0.5f);
-
+        theGM.ColourPressed(thisButtonNumber);
     }
 }

@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7514071205115909103, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
+      propertyPath: thisButtonNumber
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
 --- !u!4 &274243122 stripped
@@ -480,6 +484,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7514071205115909103, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
+      propertyPath: thisButtonNumber
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
 --- !u!4 &920821646 stripped
@@ -554,6 +562,10 @@ PrefabInstance:
     - target: {fileID: 5084658780965068320, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514071205115909103, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
+      propertyPath: thisButtonNumber
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
@@ -836,6 +848,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7514071205115909103, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
+      propertyPath: thisButtonNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
 --- !u!4 &1839426600 stripped
@@ -918,6 +934,10 @@ PrefabInstance:
     - target: {fileID: 5084658780965068320, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514071205115909103, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
+      propertyPath: thisButtonNumber
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
