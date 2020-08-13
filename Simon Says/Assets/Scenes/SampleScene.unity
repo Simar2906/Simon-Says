@@ -768,7 +768,7 @@ MonoBehaviour:
   - {fileID: 1014457325}
   - {fileID: 1892740955}
   - {fileID: 274243123}
-  stayLit: 0
+  stayLit: 1
 --- !u!1001 &1839426599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1037,6 +1037,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1428527210}
     m_Modifications:
+    - target: {fileID: -274683648667523202, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: -274683648667523202, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
+      propertyPath: m_Size.y
+      value: 2.9
+      objectReference: {fileID: 0}
     - target: {fileID: 1280178636004705646, guid: 780e48e1105ca054d8afba86307b0ab7, type: 3}
       propertyPath: m_Color.r
       value: 1
