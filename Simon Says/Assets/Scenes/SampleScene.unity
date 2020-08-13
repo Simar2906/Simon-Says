@@ -781,6 +781,8 @@ MonoBehaviour:
   - {fileID: 1892740955}
   - {fileID: 274243123}
   stayLit: 1
+  waitBetweenLights: 0.3
+  activeSequence: 
 --- !u!1001 &1839426599
 PrefabInstance:
   m_ObjectHideFlags: 0

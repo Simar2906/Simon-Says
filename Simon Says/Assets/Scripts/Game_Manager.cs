@@ -46,7 +46,7 @@ public class Game_Manager : MonoBehaviour
             {
                 if(waitBetweenCounter <0)
                 {
-                    colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
+                    colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 0.5f);
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
                     shouldBeDark = false;
