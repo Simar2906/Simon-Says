@@ -25,13 +25,14 @@ public class Game_Manager : MonoBehaviour
             stayLitCounter -= Time.deltaTime;
             if (stayLitCounter < 0)
             {
-                colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
+                colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 0.5f);
                 shouldBeLit = false;
 
                 shouldBeDark = true;
                 waitBetweenCounter = waitBetweenLights;
 
                 positionInSequence++;
+                Debug.Log("Lit time end");
             }
         }
         if(shouldBeDark)
@@ -46,7 +47,7 @@ public class Game_Manager : MonoBehaviour
             {
                 if(waitBetweenCounter <0)
                 {
-                    colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 0.5f);
+                    colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
                     shouldBeDark = false;
