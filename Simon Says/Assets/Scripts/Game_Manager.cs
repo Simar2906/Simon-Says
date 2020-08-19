@@ -18,6 +18,9 @@ public class Game_Manager : MonoBehaviour
 
     public List<int> activeSequence;
     private int positionInSequence;
+
+    private bool gameActive;
+    private int inputInSequence;
     void Update()
     {
         if (shouldBeLit)
@@ -42,6 +45,7 @@ public class Game_Manager : MonoBehaviour
             if(positionInSequence >= activeSequence.Count) 
             {
                 shouldBeDark = false;
+                gameActive = true;
             }
             else
             {
@@ -57,7 +61,10 @@ public class Game_Manager : MonoBehaviour
     }
     public void StartGame()
     {
+        activeSequence.Clear(); 
+        
         positionInSequence = 0;
+        inputInSequence = 0;
         colourSelect = Random.Range(0, colours.Length);
 
         activeSequence.Add(colourSelect);
@@ -69,11 +76,31 @@ public class Game_Manager : MonoBehaviour
 
     public void ColourPressed(int whichButton)
     {
-        if (colourSelect == whichButton)
+        if(gameActive)
         {
-            Debug.Log("Correct");
+            if (activeSequence[inputInSequence] == whichButton)
+            {
+                Debug.Log("Correct");
+
+                inputInSequence ++;
+
+                if(inputInSequence >= activeSequence.Count)
+                {
+                    positionInSequence = 0;
+                    inputInSequence = 0;
+                    colourSelect = Random.Range(0, colours.Length);
+
+                    activeSequence.Add(colourSelect);
+                    colours[activeSequence[positionInSequence]].color =  new Color (colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
+
+                    stayLitCounter = stayLit;
+                    shouldBeLit = true;
+                    gameActive = false;
+                }
+            }
+            else
+                Debug.Log("Wrong");
+                gameActive = false;
         }
-        else
-            Debug.Log("Wrong");
     }
 }
