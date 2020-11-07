@@ -6,12 +6,12 @@ public class Button_Controller : MonoBehaviour
 {
     private SpriteRenderer theSprite;
     public int thisButtonNumber = 0;
-    private Game_Manager theGM;
+    private _Game_Manager theGM;
 
     void Start()
     {
         theSprite = GetComponent<SpriteRenderer>();
-        theGM = FindObjectOfType<Game_Manager>();
+        theGM = FindObjectOfType<_Game_Manager>();
     }
 
     private void OnMouseDown()

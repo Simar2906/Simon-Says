@@ -288,8 +288,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1428527211}
-        m_TargetAssemblyTypeName: Game_Manager, Assembly-CSharp
+      - m_Target: {fileID: 1428527212}
+        m_TargetAssemblyTypeName: _Game_Manager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -734,6 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1428527210}
   - component: {fileID: 1428527211}
+  - component: {fileID: 1428527212}
   m_Layer: 0
   m_Name: Colours
   m_TagString: Untagged
@@ -768,9 +769,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428527209}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9258e809dd43c7c48a9e35c29dbaee5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colours:
+  - {fileID: 724196714400434894}
+  - {fileID: 1839426601}
+  - {fileID: 920821647}
+  - {fileID: 1014457325}
+  - {fileID: 1892740955}
+  - {fileID: 274243123}
+  stayLit: 1
+  waitBetweenLights: 0.3
+  activeSequence: 
+--- !u!114 &1428527212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428527209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0d115d1abc1c5458134c15d680d0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colours:
