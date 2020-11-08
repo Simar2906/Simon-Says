@@ -5,6 +5,7 @@ using UnityEngine;
 public class _Game_Manager : MonoBehaviour
 {
     public SpriteRenderer[] colours; //Array of colours(buttons)
+    public AudioSource[] buttonSounds;
     private int colourSelect = 0; //Next Random Selected Colour
 
     public float stayLit = 1f; //time button will stay lit
@@ -22,6 +23,10 @@ public class _Game_Manager : MonoBehaviour
 
     private bool gameActive; // used to deactivate game when sequence is being shown
 
+    public AudioSource correct;
+    public AudioSource incorrect;
+
+
     // Start is called before the first frame update
     public void StartGame()
     {
@@ -32,7 +37,7 @@ public class _Game_Manager : MonoBehaviour
         colourSelect = Random.Range(0, colours.Length);
         activeSequence.Add(colourSelect);
         colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
-    
+        buttonSounds[activeSequence[positionInSequence]].Play();
     }
 
     // Update is called once per frame
@@ -44,6 +49,7 @@ public class _Game_Manager : MonoBehaviour
             if(stayLitCounter<=0)
             {
                 colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 0.5f);
+                buttonSounds[activeSequence[positionInSequence]].Stop();
                 
                 shouldBeLit = false;
                 shouldBeDark = true;
@@ -66,6 +72,8 @@ public class _Game_Manager : MonoBehaviour
                 if(waitBetweenCounter <= 0)
                 {
                     colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
+                    buttonSounds[activeSequence[positionInSequence]].Play();
+                    
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
                     shouldBeDark = false;
@@ -80,7 +88,6 @@ public class _Game_Manager : MonoBehaviour
             if (activeSequence[inputInSequence] == whichButton)
             {
                 Debug.Log("Correct");
-
                 inputInSequence++;
 
                 if (inputInSequence >= activeSequence.Count)
@@ -91,15 +98,19 @@ public class _Game_Manager : MonoBehaviour
                     activeSequence.Add(colourSelect);
 
                     colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
-
+                    buttonSounds[activeSequence[positionInSequence]].Play();
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
-                    //gameActive = false;
+                    gameActive = false;
+                    correct.Play();
+
                 }
             }
             else
             {
                 Debug.Log("Wrong");
+                incorrect.Play();
+
                 GameEnd();
             }
             gameActive = false;
