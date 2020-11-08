@@ -18,7 +18,7 @@ public class _Game_Manager : MonoBehaviour
 
     public List<int> activeSequence; // List of sequence the player has to follow, extended with help of colorSelect
     private int positionInSequence; // marks current position in the sequence
-    private int inputInSequence; // what player clicked on
+    private int inputInSequence; // number to be inputted in the sequence compared with active sequence
 
     private bool gameActive; // used to deactivate game when sequence is being shown
 
@@ -32,13 +32,46 @@ public class _Game_Manager : MonoBehaviour
         colourSelect = Random.Range(0, colours.Length);
         activeSequence.Add(colourSelect);
         colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
-
+    
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(shouldBeLit)
+        {
+            stayLitCounter -= Time.deltaTime;
+            if(stayLitCounter<=0)
+            {
+                colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 0.5f);
+                
+                shouldBeLit = false;
+                shouldBeDark = true;
+                waitBetweenCounter = waitBetweenLights;
 
+                positionInSequence ++;
+                Debug.Log("Lit time end");
+            }
+        }
+        else
+        {
+            waitBetweenCounter -= Time.deltaTime;
+            if(positionInSequence >= activeSequence.Count) 
+            {
+                shouldBeDark = false;
+                gameActive = true;
+            }
+            else
+            {
+                if(waitBetweenCounter <= 0)
+                {
+                    colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
+                    stayLitCounter = stayLit;
+                    shouldBeLit = true;
+                    shouldBeDark = false;
+                }
+            }
+        }
     }
     public void ColourPressed(int whichButton)
     {
@@ -55,18 +88,25 @@ public class _Game_Manager : MonoBehaviour
                     positionInSequence = 0;
                     inputInSequence = 0;
                     colourSelect = Random.Range(0, colours.Length);
-
                     activeSequence.Add(colourSelect);
+
                     colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
 
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
-                    gameActive = false;
+                    //gameActive = false;
                 }
             }
             else
+            {
                 Debug.Log("Wrong");
+                GameEnd();
+            }
             gameActive = false;
         }
+    }
+    public void GameEnd()
+    {
+        
     }
 }
