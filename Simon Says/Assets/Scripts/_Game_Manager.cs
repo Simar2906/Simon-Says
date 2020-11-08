@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class _Game_Manager : MonoBehaviour
 {
@@ -25,9 +26,17 @@ public class _Game_Manager : MonoBehaviour
 
     public AudioSource correct;
     public AudioSource incorrect;
+    public Text scoreText;
 
 
     // Start is called before the first frame update
+    private void Start() {
+        if(!PlayerPrefs.HasKey("Hiscore"))
+        {
+            PlayerPrefs.SetInt("Hiscore", 0);
+        }
+        scoreText.text = "Score: 0 - High Score: " + PlayerPrefs.GetInt("Hiscore");
+    }
     public void StartGame()
     {
         activeSequence.Clear();
@@ -38,6 +47,8 @@ public class _Game_Manager : MonoBehaviour
         activeSequence.Add(colourSelect);
         colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
         buttonSounds[activeSequence[positionInSequence]].Play();
+        scoreText.text = "Score: 0 - High Score: " + PlayerPrefs.GetInt("Hiscore");
+
     }
 
     // Update is called once per frame
@@ -92,6 +103,12 @@ public class _Game_Manager : MonoBehaviour
 
                 if (inputInSequence >= activeSequence.Count)
                 {
+                    if(activeSequence.Count > PlayerPrefs.GetInt("Hiscore"))
+                    {
+                        PlayerPrefs.SetInt("Hiscore", activeSequence.Count);
+                    }
+                    scoreText.text = "Score: " + activeSequence.Count + " - High Score: " + PlayerPrefs.GetInt("Hiscore");
+
                     positionInSequence = 0;
                     inputInSequence = 0;
                     colourSelect = Random.Range(0, colours.Length);
@@ -103,7 +120,6 @@ public class _Game_Manager : MonoBehaviour
                     shouldBeLit = true;
                     gameActive = false;
                     correct.Play();
-
                 }
             }
             else
