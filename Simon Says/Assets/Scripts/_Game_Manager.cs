@@ -36,9 +36,13 @@ public class _Game_Manager : MonoBehaviour
             PlayerPrefs.SetInt("Hiscore", 0);
         }
         scoreText.text = "Score: 0 - High Score: " + PlayerPrefs.GetInt("Hiscore");
+        SetBoardInteractable(false);
+
     }
     public void StartGame()
     {
+        SetBoardInteractable(true);
+
         activeSequence.Clear();
         stayLitCounter = stayLit;
         positionInSequence = 0;
@@ -135,6 +139,13 @@ public class _Game_Manager : MonoBehaviour
     public void GameEnd()
     {
         startButton.SetActive(true);
-        
+        SetBoardInteractable(false);
+    }
+    public void SetBoardInteractable(bool cond)
+    {
+        for (int i = 0; i < colours.Length; i++)// iterate through every key
+        {
+            colours[i].GetComponentInParent<BoxCollider2D>().enabled = cond;
+        }
     }
 }
