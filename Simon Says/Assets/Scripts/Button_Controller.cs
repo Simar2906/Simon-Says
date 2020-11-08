@@ -7,8 +7,8 @@ public class Button_Controller : MonoBehaviour
     private SpriteRenderer theSprite;
     public int thisButtonNumber = 0;
     private _Game_Manager theGM;
-
     private AudioSource theSound;
+    
     void Start()
     {
         theSprite = GetComponent<SpriteRenderer>();

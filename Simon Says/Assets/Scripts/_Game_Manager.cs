@@ -27,7 +27,7 @@ public class _Game_Manager : MonoBehaviour
     public AudioSource correct;
     public AudioSource incorrect;
     public Text scoreText;
-
+    public GameObject startButton;
 
     // Start is called before the first frame update
     private void Start() {
@@ -48,7 +48,7 @@ public class _Game_Manager : MonoBehaviour
         colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
         buttonSounds[activeSequence[positionInSequence]].Play();
         scoreText.text = "Score: 0 - High Score: " + PlayerPrefs.GetInt("Hiscore");
-
+        startButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -134,6 +134,7 @@ public class _Game_Manager : MonoBehaviour
     }
     public void GameEnd()
     {
+        startButton.SetActive(true);
         
     }
 }

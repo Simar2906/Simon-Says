@@ -1223,6 +1223,7 @@ MonoBehaviour:
   correct: {fileID: 2067461000}
   incorrect: {fileID: 1018683924}
   scoreText: {fileID: 1602037131}
+  startButton: {fileID: 318370495}
 --- !u!1 &1602037129
 GameObject:
   m_ObjectHideFlags: 0
